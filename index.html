@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>e-Procure Guyana Portal Guide | BizHubGY | BizHubGY</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,0" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', system-ui, sans-serif; background: #F8F9FF; color: #1A1B22; overflow-x: hidden; }
+:root {
+  --primary: #2C4D90; --primary-light: #D9E2FF; --primary-dark: #001A41;
+  --surface: #F8F9FF; --surface3: #ECEEF4; --surface4: #E6E8EE;
+  --text: #1A1B22; --text2: #44464F; --text3: #74777F; --border: #E1E2E8;
+  --green: #059669; --green-light: #D1FAE5; --green-dark: #065F46;
+  --amber: #D97706; --amber-light: #FEF3C7; --amber-dark: #92400E;
+  --red: #DC2626; --red-light: #FEE2E2; --red-dark: #991B1B;
+  --plum: #74546F; --plum-light: #F3E8F2;
+}
+.icon { font-family: 'Material Symbols Outlined'; font-size: 22px; line-height: 1; }
+.icon-sm { font-family: 'Material Symbols Outlined'; font-size: 18px; line-height: 1; }
+.icon-xs { font-family: 'Material Symbols Outlined'; font-size: 14px; line-height: 1; }
+
+.nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; max-width: 1100px; margin: 0 auto; }
+.nav .nav-cta { background: var(--primary); color: white; border: none; padding: 8px 20px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s ease; }
+.nav .nav-cta:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+.container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+.hero { background: linear-gradient(135deg, var(--primary) 0%, #1a3a6a 100%); border-radius: 20px; padding: 56px 48px; color: white; position: relative; overflow: hidden; margin: 0 20px; }
+.hero::before { content: ''; position: absolute; top: -60%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%); border-radius: 50%; }
+.hero .label { font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; opacity: 0.8; margin-bottom: 8px; }
+.hero h1 { font-size: 34px; font-weight: 700; line-height: 1.15; letter-spacing: -0.5px; max-width: 550px; }
+.hero p { font-size: 15px; opacity: 0.85; margin-top: 12px; line-height: 1.6; max-width: 480px; }
+.hero .cta-row { display: flex; gap: 12px; margin-top: 28px; align-items: center; }
+.hero .btn-primary { background: white; color: var(--primary); border: none; padding: 12px 32px; border-radius: 999px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s ease; }
+.hero .btn-primary:hover { background: #f0f2ff; transform: translateY(-1px); }
+.hero .btn-secondary { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.4); padding: 12px 28px; border-radius: 999px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s ease; }
+.hero .btn-secondary:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.7); transform: translateY(-1px); }
+
+.trust-bar { display: flex; justify-content: center; gap: 48px; padding: 32px 20px; max-width: 900px; margin: 0 auto; flex-wrap: wrap; }
+.trust-bar .trust-item { text-align: center; min-width: 120px; }
+.trust-bar .trust-item .num { font-size: 28px; font-weight: 800; color: var(--primary); line-height: 1; }
+.trust-bar .trust-item .label { font-size: 12px; color: var(--text2); margin-top: 4px; font-weight: 500; }
+
+.section-title { font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--text3); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid var(--primary-light); }
+.section-block { margin-bottom: 56px; }
+
+.feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.feature-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 20px; display: flex; gap: 14px; }
+.feature-card .fc-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--primary-light); display: flex; align-items: center; justify-content: center; color: var(--primary); flex-shrink: 0; }
+.feature-card .fc-body { flex: 1; }
+.feature-card .fc-body h4 { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+.feature-card .fc-body p { font-size: 12px; color: var(--text2); line-height: 1.5; }
+
+.timeline-card { background: white; border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+.timeline-step { display: flex; gap: 14px; }
+.timeline-step .step-icon { display: flex; flex-direction: column; align-items: center; }
+.timeline-step .step-icon .dot { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 16px; flex-shrink: 0; }
+.timeline-step .step-icon .dot.blue { background: var(--primary); }
+.timeline-step .step-icon .dot.green { background: var(--green); }
+.timeline-step .step-icon .dot.amber { background: var(--amber); }
+.timeline-step .step-icon .dot.gray { background: var(--text3); }
+.timeline-step .step-icon .line { width: 2px; flex: 1; background: var(--border); min-height: 20px; }
+.timeline-step .step-body { padding-bottom: 20px; flex: 1; }
+.timeline-step .step-body .step-title { font-size: 14px; font-weight: 600; color: var(--text); }
+.timeline-step .step-body .step-desc { font-size: 12px; color: var(--text2); margin-top: 2px; line-height: 1.5; }
+.timeline-step:last-child .step-icon .line { display: none; }
+.timeline-step:last-child .step-body { padding-bottom: 0; }
+
+.pricing-card { background: linear-gradient(135deg, var(--primary-light), #e8edff); border: 2px solid var(--primary); border-radius: 20px; padding: 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.pricing-card .pc-badge { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; background: var(--primary); color: white; padding: 4px 12px; border-radius: 999px; display: inline-block; margin-bottom: 8px; }
+.pricing-card .pc-info h3 { font-size: 22px; font-weight: 700; color: var(--text); }
+.pricing-card .pc-info p { font-size: 13px; color: var(--text2); line-height: 1.5; max-width: 380px; }
+.pricing-card .pc-info .pc-features { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+.pricing-card .pc-info .pc-features span { font-size: 12px; color: var(--text2); display: flex; align-items: center; gap: 4px; }
+.pricing-card .pc-info .pc-features span .check { font-family: 'Material Symbols Outlined'; font-size: 14px; color: var(--green); }
+.pricing-card .pc-price { text-align: right; }
+.pricing-card .pc-price .amount { font-size: 34px; font-weight: 800; color: var(--text); line-height: 1; }
+.pricing-card .pc-price .period { font-size: 12px; color: var(--text2); }
+.pricing-card .pc-price button { margin-top: 10px; background: var(--primary); color: white; border: none; padding: 10px 28px; border-radius: 999px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s ease; }
+.pricing-card .pc-price button:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+.testimonial { background: white; border: 1px solid var(--border); border-radius: 20px; padding: 28px; }
+.testimonial .quote-text { font-size: 16px; font-weight: 500; color: var(--text); line-height: 1.5; letter-spacing: -0.2px; }
+.testimonial .author { display: flex; align-items: center; gap: 10px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+.testimonial .author .avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--primary-light); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 15px; font-weight: 600; }
+.testimonial .author .name { font-size: 13px; font-weight: 600; color: var(--text); }
+.testimonial .author .role { font-size: 11px; color: var(--text3); }
+
+.faq-list { display: flex; flex-direction: column; gap: 8px; }
+.faq-item { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 16px 20px; }
+.faq-item summary { font-size: 14px; font-weight: 600; color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary .faq-arrow { font-family: 'Material Symbols Outlined'; font-size: 18px; color: var(--text3); transition: transform 0.2s; }
+.faq-item[open] summary .faq-arrow { transform: rotate(180deg); }
+.faq-item .faq-answer { font-size: 13px; color: var(--text2); line-height: 1.6; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+
+.cta-banner { background: linear-gradient(135deg, var(--primary) 0%, #1a3a6a 100%); border-radius: 20px; padding: 40px; text-align: center; color: white; }
+.cta-banner h2 { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; }
+.cta-banner p { font-size: 14px; opacity: 0.85; margin-top: 8px; line-height: 1.5; max-width: 500px; margin-left: auto; margin-right: auto; }
+.cta-banner button { margin-top: 20px; background: white; color: var(--primary); border: none; padding: 12px 36px; border-radius: 999px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.2s ease; }
+.cta-banner button:hover { background: #f0f2ff; transform: translateY(-1px); }
+
+.footer { text-align: center; padding: 32px 20px 24px; font-size: 12px; color: var(--text3); line-height: 1.6; }
+.footer a { color: var(--primary); text-decoration: none; font-weight: 500; }
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .hero { padding: 40px 28px; margin: 0 12px; }
+  .hero h1 { font-size: 26px; }
+  .hero .cta-row { flex-direction: column; align-items: stretch; }
+  .hero .cta-row button { width: 100%; text-align: center; }
+  .trust-bar { gap: 24px; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .pricing-card { flex-direction: column; text-align: center; padding: 24px; }
+  .pricing-card .pc-price { text-align: center; width: 100%; }
+  .pricing-card .pc-price button { width: 100%; }
+  .pricing-card .pc-info .pc-features { justify-content: center; }
+  .cta-banner { padding: 32px 24px; }
+  .cta-banner h2 { font-size: 22px; }
+}
+@media (max-width: 480px) {
+  .hero { padding: 28px 20px; border-radius: 16px; margin: 0 8px; }
+  .hero h1 { font-size: 22px; }
+  .hero p { font-size: 13px; }
+  .container { padding: 0 12px; }
+  .trust-bar .trust-item .num { font-size: 22px; }
+  .pricing-card { padding: 20px; }
+  .pricing-card .pc-price .amount { font-size: 28px; }
+  .testimonial { padding: 20px; }
+  .testimonial .quote-text { font-size: 14px; }
+  .cta-banner { padding: 28px 20px; }
+  .cta-banner h2 { font-size: 20px; }
+  .faq-item { padding: 14px 16px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
+    <img src="logo.png" alt="BizHubGY" style="height: 80px; width: auto;">
+  </a>
+  <button class="nav-cta">Get started →</button>
+</nav>
+
+<section class="hero">
+  <div class="label">🇬🇾 Guyana Business Services</div>
+  <h1>Master Guyana's e-Procure system.<br>We make government bidding simple.</h1>
+  <p>The e-Procure platform is Guyana's digital gateway to government contracts. BizHubGY helps you navigate, monitor, and win through it — with alerts, document management, and compliance tracking built in.</p>
+  <div class="cta-row">
+    <button class="btn-primary">Get started →</button>
+    <button class="btn-secondary">Learn more</button>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item">
+    <div class="num">36,000+</div>
+    <div class="label">Businesses registered in 2025</div>
+  </div>
+  <div class="trust-item">
+    <div class="num">Accessing and winning government contracts via Guyana's e-Procure system.</div>
+    <div class="label">Daily opportunities tracked</div>
+  </div>
+  <div class="trust-item">
+    <div class="num">100%</div>
+    <div class="label">Satisfaction guarantee</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-block">
+    <div class="section-title">What's Included</div>
+    <div class="feature-grid">
+      
+      <div class="feature-card">
+        <div class="fc-icon"><span class="icon">launch</span></div>
+        <div class="fc-body">
+          <h4>e-Procure Integration</h4>
+          <p>Direct integration with ep procure.gov.gy — we monitor it so you don't have to refresh the page.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon"><span class="icon">notifications</span></div>
+        <div class="fc-body">
+          <h4>Instant New Tender Alerts</h4>
+          <p>When a new opportunity drops on e-Procure, you're notified within minutes. No refreshing, no missed deadlines.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon"><span class="icon">folder</span></div>
+        <div class="fc-body">
+          <h4>Document Management</h4>
+          <p>Download, organise, and store all tender documents in your secure BizHubGY Vault — accessible anywhere.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon"><span class="icon">calendar_month</span></div>
+        <div class="fc-body">
+          <h4>Deadline Tracking</h4>
+          <p>Automatic deadline calendar with reminders 7, 3, and 1 day before each submission closes.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon"><span class="icon">verified</span></div>
+        <div class="fc-body">
+          <h4>Compliance Status</h4>
+          <p>Check whether your NIS, GRA, and Local Content certifications are valid for each tender — before you bid.</p>
+        </div>
+      </div>
+      <div class="feature-card">
+        <div class="fc-icon"><span class="icon">trending_up</span></div>
+        <div class="fc-body">
+          <h4>Bid Intelligence</h4>
+          <p>Historical award data shows winning bid ranges, agency spending patterns, and competitor activity.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-title">How It Works</div>
+    <div class="timeline-card">
+      
+      <div class="timeline-step">
+        <div class="step-icon">
+          <div class="dot blue"><span class="icon-xs">assignment</span></div>
+          <div class="line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Connect your e-Procure profile</div>
+          <div class="step-desc">Link your existing e-Procure account or create one through BizHubGY. We sync with the portal automatically.</div>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="step-icon">
+          <div class="dot amber"><span class="icon-xs">description</span></div>
+          <div class="line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Set your opportunity filters</div>
+          <div class="step-desc">Choose sectors, agencies, and value thresholds. Your personalised feed is ready in minutes.</div>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="step-icon">
+          <div class="dot amber"><span class="icon-xs">send</span></div>
+          <div class="line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Receive alerts & prepare</div>
+          <div class="step-desc">New matching opportunities come to you — via WhatsApp, email, or in-app. Access specs and documents instantly.</div>
+        </div>
+      </div>
+      <div class="timeline-step">
+        <div class="step-icon">
+          <div class="dot green"><span class="icon-xs">check_circle</span></div>
+          <div class="line"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">Submit with confidence</div>
+          <div class="step-desc">Track your submissions, manage deadlines, and maintain compliance — all from one dashboard.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-title">Simple Pricing</div>
+    <div class="pricing-card">
+      <div class="pc-info">
+        <div class="pc-badge">Most popular</div>
+        <h3>Business Pro Plan</h3>
+        <p>Full access to all features — opportunities, compliance tracking, document vault, and priority support.</p>
+        <div class="pc-features">
+          <span><span class="check">check</span> Daily tender alerts</span>
+          <span><span class="check">check</span> Compliance tracking</span>
+          <span><span class="check">check</span> Document vault</span>
+          <span><span class="check">check</span> AI assistance</span>
+          <span><span class="check">check</span> Priority support</span>
+        </div>
+      </div>
+      <div class="pc-price">
+        <div class="amount">$75</div>
+        <div class="period">/month · GYD 16,500</div>
+        <button>Start today →</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-title">Trusted by Guyanese SMEs</div>
+    <div class="testimonial">
+      <div class="quote-text">"e-Procure was overwhelming at first — dozens of tenders, confusing navigation. BizHubGY simplified everything. Now I get alerts and bid documents pushed straight to my phone."</div>
+      <div class="author">
+        <div class="avatar">JD</div>
+        <div>
+          <div class="name">Business Owner</div>
+          <div class="role">Guyana</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-title">Frequently Asked Questions</div>
+    <div class="faq-list">
+      
+      <details class="faq-item">
+        <summary>What is e-Procure Guyana? <span class="faq-arrow">expand_more</span></summary>
+        <div class="faq-answer">e-Procure (eprocure.gov.gy) is Guyana's official electronic government procurement portal. All government ministries and agencies publish tender opportunities there.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need an e-Procure account? <span class="faq-arrow">expand_more</span></summary>
+        <div class="faq-answer">Yes, you need an account to submit bids. BizHubGY helps you create and manage your profile, and we monitor the portal on your behalf.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is e-Procure free to use? <span class="faq-arrow">expand_more</span></summary>
+        <div class="faq-answer">Yes, accessing e-Procure is free. BizHubGY's monitoring and alert service starts at $0 on the Free plan (10 alerts/month).</div>
+      </details>
+      <details class="faq-item">
+        <summary>How many agencies use e-Procure? <span class="faq-arrow">expand_more</span></summary>
+        <div class="faq-answer">31+ agencies including Office of the President, Ministry of Public Works, Ministry of Health, GRA, NIS, and all regional democratic councils.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What if I miss a tender that isn't on e-Procure? <span class="faq-arrow">expand_more</span></summary>
+        <div class="faq-answer">We also monitor NPTA publications, agency-specific bulletins, and News Room announcements for opportunities not posted to e-Procure.</div>
+      </details>
+    </div>
+  </div>
+
+</div>
+
+<section class="cta-banner" style="max-width: 900px; margin: 0 auto 40px;">
+  <h2>Ready to get started?</h2>
+  <p>Join thousands of Guyanese entrepreneurs growing their business with BizHubGY.</p>
+  <button>Get started →</button>
+</section>
+
+<div class="footer">
+  <p>BizHubGY — A GK Global Solutionz LLC product</p>
+  <p style="margin-top: 4px;">New Jersey · Georgetown · <a href="https://bizhubgy.com">bizhubgy.com</a></p>
+</div>
+
+</body>
+</html>
